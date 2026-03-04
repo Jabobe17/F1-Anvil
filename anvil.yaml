@@ -1,4 +1,5 @@
 allow_embedding: false
+db_schema: {}
 name: F1
 package_name: F1
 runtime_options:
