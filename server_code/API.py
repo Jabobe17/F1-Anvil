@@ -41,3 +41,5 @@ def api_get_results_for_race(race_id):
     WHERE RennenID = ?
     ORDER BY Position ASC
   """, (race_id,))
+
+  
