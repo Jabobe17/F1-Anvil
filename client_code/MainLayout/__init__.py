@@ -1,7 +1,6 @@
 from ._anvil_designer import MainLayoutTemplate
 from anvil import *
 import anvil.server
-import plotly.graph_objects as go
 from anvil import GoogleMap
 
 from .DashboardFahrer import DashboardFahrer
@@ -71,7 +70,9 @@ class MainLayout(MainLayoutTemplate):
     self.repeating_panel_1.items = [{
       "Name": daten["Name"],
       "Land": daten["Land"],
-      "Laenge_km": f'{daten["Laenge_km"]} km'
+      "Laenge_km": f'{daten["Laenge_km"]} km',
+      "Rekordzeit": daten["Rekordzeit"],
+      "Letzter_Sieger": daten["Letzter_Sieger"]
     }]
 
   @handle("drop_down_1", "change")

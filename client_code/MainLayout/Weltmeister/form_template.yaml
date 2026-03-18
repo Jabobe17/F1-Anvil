@@ -3,11 +3,15 @@ components:
   name: label_1
   properties: {align: center, bold: true, font_size: 19, text: Weltmeister}
   type: Label
+- layout_properties: {grid_position: 'UKYADH,DPGZQK AGRJUW,LGPCFR'}
+  name: label_2
+  properties: {text: Fahrer Weltmeister}
+  type: Label
 - components:
   - name: repeating_panel_1
     properties: {item_template: MainLayout.Weltmeister.RowTemplate4}
     type: RepeatingPanel
-  layout_properties: {grid_position: 'UKYADH,DPGZQK'}
+  layout_properties: {grid_position: 'UKYADH,DPGZQK WAMPGV,UBCQRY'}
   name: data_grid_1
   properties:
     columns:
@@ -16,21 +20,25 @@ components:
     - {data_key: Team, id: OJLQEN, title: Team}
     - {data_key: Punkte, id: WRECRX, title: Punkte}
     - {data_key: Siege, id: FYHHOT, title: Siege}
+    rows_per_page: 19
   type: DataGrid
+- layout_properties: {grid_position: 'UKYADH,SAVCAP JTQOAE,OLYEIQ'}
+  name: label_3
+  properties: {text: Konstrukteur Weltmeister}
+  type: Label
 - components:
   - name: repeating_panel_2
     properties: {item_template: MainLayout.Weltmeister.RowTemplate5}
     type: RepeatingPanel
-  layout_properties: {grid_position: 'WEAYMI,MATJUI'}
+  layout_properties: {grid_position: 'UKYADH,SAVCAP IDCGFR,LFRZNM'}
   name: data_grid_2
   properties:
     columns:
     - {data_key: Jahr, id: JKSDUP, title: 'Jahr '}
     - {data_key: Team, id: HBFXIH, title: Team}
-    - {data_key: Fahrer1, id: VJQQOR, title: Fahrer1}
-    - {data_key: Fahrer2, id: OJLQEN, title: Fahrer2}
     - {data_key: Punkte, id: HWPFHP, title: Punkte}
     - {data_key: Siege, id: FVGDXX, title: Siege}
+    rows_per_page: 200
   type: DataGrid
 container: {type: ColumnPanel}
 is_package: true

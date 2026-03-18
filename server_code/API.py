@@ -61,52 +61,31 @@ def get_teams():
 def get_fahrer_weltmeister():
   sql = """
         SELECT
-            2026 AS Jahr,
+            wm.Jahr,
             f.Name AS Fahrer,
             t.name AS Team,
-            fs.Punkte,
-            fs.Siege
-        FROM Fahrerstatistik fs
-        JOIN Fahrer f ON f.FahrerNr = fs.FahrerNr
-        JOIN Fahrer_Team ft ON ft.FahrerNr = fs.FahrerNr
-        JOIN Team t ON t.team_id = ft.team_id
-        WHERE ft.Jahr = 2026
-        ORDER BY fs.Punkte DESC, fs.Siege DESC, f.Name ASC
-        LIMIT 1
+            wm.Punkte,
+            wm.Siege
+        FROM FahrerWM wm
+        JOIN Fahrer f ON f.FahrerNr = wm.FahrerNr
+        JOIN Team t ON t.team_id = wm.team_id
+        ORDER BY wm.Jahr DESC
     """
   return run_query(sql)
+
 
 @anvil.server.callable
 def get_konstrukteur_weltmeister():
   sql = """
-        WITH team_stats AS (
-            SELECT
-                ft.team_id,
-                ft.Jahr,
-                t.name AS Team,
-                SUM(fs.Punkte) AS Punkte,
-                SUM(fs.Siege) AS Siege
-            FROM Fahrer_Team ft
-            JOIN Fahrerstatistik fs ON fs.FahrerNr = ft.FahrerNr
-            JOIN Team t ON t.team_id = ft.team_id
-            WHERE ft.Jahr = 2026
-            GROUP BY ft.team_id, ft.Jahr, t.name
-        ),
-        best_team AS (
-            SELECT team_id, Jahr, Team, Punkte, Siege
-            FROM team_stats
-            ORDER BY Punkte DESC, Siege DESC, Team ASC
-            LIMIT 1
-        )
         SELECT
-            bt.Jahr,
-            bt.Team,
+            wm.Jahr,
+            t.name AS Team,
             (
                 SELECT f.Name
                 FROM Fahrer_Team ft
                 JOIN Fahrer f ON f.FahrerNr = ft.FahrerNr
-                WHERE ft.team_id = bt.team_id
-                  AND ft.Jahr = bt.Jahr
+                WHERE ft.team_id = wm.team_id
+                  AND ft.Jahr = wm.Jahr
                 ORDER BY f.Name
                 LIMIT 1
             ) AS Fahrer1,
@@ -114,16 +93,19 @@ def get_konstrukteur_weltmeister():
                 SELECT f.Name
                 FROM Fahrer_Team ft
                 JOIN Fahrer f ON f.FahrerNr = ft.FahrerNr
-                WHERE ft.team_id = bt.team_id
-                  AND ft.Jahr = bt.Jahr
+                WHERE ft.team_id = wm.team_id
+                  AND ft.Jahr = wm.Jahr
                 ORDER BY f.Name
                 LIMIT 1 OFFSET 1
             ) AS Fahrer2,
-            bt.Punkte,
-            bt.Siege
-        FROM best_team bt
+            wm.Punkte,
+            wm.Siege
+        FROM KonstrukteurWM wm
+        JOIN Team t ON t.team_id = wm.team_id
+        ORDER BY wm.Jahr DESC
     """
   return run_query(sql)
+
 
 @anvil.server.callable
 def get_dashboard_fahrer_punkte():
@@ -169,7 +151,13 @@ def get_strecken_liste():
 @anvil.server.callable
 def get_strecke_details(name):
   sql = """
-        SELECT Name, Land, Kordinaten, Laenge_km
+        SELECT
+            Name,
+            Land,
+            Kordinaten,
+            Laenge_km,
+            Rundenrekord,
+            Letzter_Gewinner
         FROM strecken
         WHERE Name = ?
     """
@@ -178,4 +166,13 @@ def get_strecke_details(name):
   if not rows:
     return None
 
-  return rows[0]
+  row = rows[0]
+
+  return {
+    "Name": row["Name"],
+    "Land": row["Land"],
+    "Kordinaten": row["Kordinaten"],
+    "Laenge_km": row["Laenge_km"],
+    "Rekordzeit": row["Rundenrekord"],
+    "Letzter_Sieger": row["Letzter_Gewinner"]
+  }
