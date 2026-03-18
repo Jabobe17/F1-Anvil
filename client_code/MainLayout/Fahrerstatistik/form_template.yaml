@@ -17,6 +17,7 @@ components:
     - {data_key: Podium, id: XAQTDD, title: Podium}
     - {data_key: Punkte, id: GLTDCP, title: Punkte}
     - {data_key: DNF, id: TITBHW, title: DNF}
+    rows_per_page: 28
   type: DataGrid
 - event_bindings: {}
   layout_properties: {grid_position: 'FZNCLX,OBAYHW'}

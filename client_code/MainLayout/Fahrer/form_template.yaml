@@ -16,6 +16,7 @@ components:
     - {data_key: Nation, id: OJLQEN, title: Nation}
     - {data_key: Debutjahr, id: QERKWZ, title: Debut}
     - {data_key: Geburtsdatum, id: VRHEDR, title: Geburtsdatum}
+    rows_per_page: 24
   type: DataGrid
 - event_bindings: {}
   layout_properties: {grid_position: 'KLXGAY,RBCWYA'}

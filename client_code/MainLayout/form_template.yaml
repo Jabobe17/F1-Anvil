@@ -3,7 +3,11 @@ components:
   name: navbar_links
   properties: {}
   type: FlowPanel
-- components: []
+- components:
+  - layout_properties: {grid_position: 'XYNSOM,NTEFJJ'}
+    name: map_1
+    properties: {height: 576}
+    type: GoogleMap
   layout_properties: {slot: default}
   name: column_panel_1
   properties: {}
@@ -45,6 +49,10 @@ components:
   name: column_panel_2
   properties: {}
   type: ColumnPanel
+- layout_properties: {slot: title}
+  name: label_1
+  properties: {text: 'F1-Anvil '}
+  type: Label
 container:
   properties: {html: '@theme:standard-page.html'}
   type: HtmlTemplate
