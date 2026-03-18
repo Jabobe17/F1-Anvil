@@ -61,18 +61,20 @@ def get_teams():
 def get_fahrer_weltmeister():
   sql = """
         SELECT
-            fw.Jahr,
+            2026 AS Jahr,
             f.Name AS Fahrer,
             t.name AS Team,
-            fw.Punkte,
-            fw.Siege
-        FROM FahrerWM fw
-        JOIN Fahrer f ON f.FahrerNr = fw.FahrerNr
-        JOIN Team t ON t.team_id = fw.team_id
-        ORDER BY fw.Jahr DESC
+            fs.Punkte,
+            fs.Siege
+        FROM Fahrerstatistik fs
+        JOIN Fahrer f ON f.FahrerNr = fs.FahrerNr
+        JOIN Fahrer_Team ft ON ft.FahrerNr = fs.FahrerNr
+        JOIN Team t ON t.team_id = ft.team_id
+        WHERE ft.Jahr = 2026
+        ORDER BY fs.Punkte DESC, fs.Siege DESC, f.Name ASC
+        LIMIT 1
     """
   return run_query(sql)
-
 
 @anvil.server.callable
 def get_konstrukteur_weltmeister():

@@ -107,3 +107,8 @@ class MainLayout(MainLayoutTemplate):
   @handle("btn_dashboard_teams", "click")
   def btn_dashboard_teams_click(self, **event_args):
     self.zeige_form(DashboardTeams)
+
+  @handle("button_1", "click")
+  def button_1_click(self, **event_args):
+    open_form('MainLayout')    
+    pass

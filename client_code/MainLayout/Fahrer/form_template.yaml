@@ -1,7 +1,7 @@
 components:
 - layout_properties: {grid_position: 'MWJGPO,LMFXVB'}
   name: label_1
-  properties: {align: center, font_size: 17, text: Fahrer}
+  properties: {align: center, bold: true, font_size: 18, text: Fahrer}
   type: Label
 - components:
   - name: repeating_panel_1
@@ -18,12 +18,5 @@ components:
     - {data_key: Geburtsdatum, id: VRHEDR, title: Geburtsdatum}
     rows_per_page: 24
   type: DataGrid
-- event_bindings: {}
-  layout_properties: {grid_position: 'KLXGAY,RBCWYA'}
-  name: button_1
-  properties:
-    text: |
-      Home
-  type: Button
 container: {type: ColumnPanel}
 is_package: true
