@@ -1,0 +1,29 @@
+components:
+- layout_properties: {grid_position: 'KYJGGQ,AFLTMJ'}
+  name: label_1
+  properties: {text: Teams}
+  type: Label
+- components:
+  - name: repeating_panel_1
+    properties: {item_template: MainLayout.Teams.RowTemplate3}
+    type: RepeatingPanel
+  layout_properties: {grid_position: 'RHWYZA,KNOLFR'}
+  name: data_grid_1
+  properties:
+    columns:
+    - {data_key: name, id: JKSDUP, title: Team}
+    - {data_key: Abkuerzung, id: VJQQOR, title: Abkürzung}
+    - {data_key: Standort, id: OJLQEN, title: Standort}
+  type: DataGrid
+- event_bindings: {}
+  layout_properties: {grid_position: 'ZKGOXB,IUYOFS'}
+  name: btn_dashboard_teams
+  properties: {text: Dashboard}
+  type: Button
+- event_bindings: {}
+  layout_properties: {grid_position: 'NYZMAV,UUDDDM'}
+  name: button_1
+  properties: {text: Home}
+  type: Button
+container: {type: ColumnPanel}
+is_package: true

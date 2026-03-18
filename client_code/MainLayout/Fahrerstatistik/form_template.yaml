@@ -1,0 +1,32 @@
+components:
+- layout_properties: {grid_position: 'YDWLNL,DBEOSG'}
+  name: label_1
+  properties: {text: Fahrerstatistik}
+  type: Label
+- components:
+  - name: repeating_panel_1
+    properties: {item_template: MainLayout.Fahrerstatistik.RowTemplate2}
+    type: RepeatingPanel
+  layout_properties: {grid_position: 'ZXBNKJ,ADIUVT'}
+  name: data_grid_1
+  properties:
+    columns:
+    - {data_key: Name, id: JKSDUP, title: Name}
+    - {data_key: Pole_Position, id: VJQQOR, title: Pole Position}
+    - {data_key: Siege, id: OJLQEN, title: Siege}
+    - {data_key: Podium, id: XAQTDD, title: Podium}
+    - {data_key: Punkte, id: GLTDCP, title: Punkte}
+    - {data_key: DNF, id: TITBHW, title: DNF}
+  type: DataGrid
+- event_bindings: {}
+  layout_properties: {grid_position: 'FZNCLX,OBAYHW'}
+  name: btn_dashboard_fahrer
+  properties: {text: Dashboard}
+  type: Button
+- event_bindings: {}
+  layout_properties: {grid_position: 'VYGPDA,XADNLY'}
+  name: button_1
+  properties: {text: Home}
+  type: Button
+container: {type: ColumnPanel}
+is_package: true

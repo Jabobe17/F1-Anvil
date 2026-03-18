@@ -1,0 +1,40 @@
+components:
+- layout_properties: {grid_position: 'UVITXS,IKAQJB'}
+  name: label_1
+  properties: {text: Weltmeister}
+  type: Label
+- components:
+  - name: repeating_panel_1
+    properties: {item_template: MainLayout.Weltmeister.RowTemplate4}
+    type: RepeatingPanel
+  layout_properties: {grid_position: 'UKYADH,DPGZQK'}
+  name: data_grid_1
+  properties:
+    columns:
+    - {data_key: Jahr, id: JKSDUP, title: Jahr}
+    - {data_key: Fahrer, id: VJQQOR, title: Fahrer}
+    - {data_key: Team, id: OJLQEN, title: Team}
+    - {data_key: Punkte, id: WRECRX, title: Punkte}
+    - {data_key: Siege, id: FYHHOT, title: Siege}
+  type: DataGrid
+- components:
+  - name: repeating_panel_2
+    properties: {item_template: MainLayout.Weltmeister.RowTemplate5}
+    type: RepeatingPanel
+  layout_properties: {grid_position: 'WEAYMI,MATJUI'}
+  name: data_grid_2
+  properties:
+    columns:
+    - {data_key: Jahr, id: JKSDUP, title: 'Jahr '}
+    - {data_key: Fahrer1, id: VJQQOR, title: Fahrer1}
+    - {data_key: Fahrer2, id: OJLQEN, title: Fahrer2}
+    - {data_key: Punkte, id: HWPFHP, title: Punkte}
+    - {data_key: Siege, id: FVGDXX, title: Siege}
+  type: DataGrid
+- event_bindings: {}
+  layout_properties: {grid_position: 'ZKIUGB,WBFSWO'}
+  name: button_1
+  properties: {text: Home}
+  type: Button
+container: {type: ColumnPanel}
+is_package: true

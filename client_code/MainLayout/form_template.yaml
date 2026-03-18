@@ -4,33 +4,30 @@ components:
   properties: {}
   type: FlowPanel
 - components:
-  - components:
-    - layout_properties: {grid_position: 'WOPHDN,PXGNNR'}
-      name: label_1
-      properties: {text: F1 2026 Prognose}
-      type: Label
-    - event_bindings: {}
-      layout_properties: {grid_position: 'FWBODN,APSMWF'}
-      name: btn_infos
-      properties:
-        text: |
-          Infos
-      type: Button
-    - event_bindings: {}
-      layout_properties: {grid_position: 'LBTVLB,ESSOOG'}
-      name: btn_stats
-      properties:
-        text: |
-          Statistiken
-      type: Button
-    layout_properties: {expand: false, width: 200}
-    name: sidebar
-    properties: {}
-    type: ColumnPanel
+  - event_bindings: {}
+    layout_properties: {grid_position: 'EUNOJG,DPLAKH'}
+    name: btn_fahrer
+    properties: {text: Fahrer}
+    type: Button
+  - event_bindings: {}
+    layout_properties: {grid_position: 'KJVMSJ,KJIZHO'}
+    name: btn_statistik
+    properties: {text: FahrerStats}
+    type: Button
+  - event_bindings: {}
+    layout_properties: {grid_position: 'DROPME,RKSXHT'}
+    name: btn_teams
+    properties: {text: Teams}
+    type: Button
+  - event_bindings: {}
+    layout_properties: {grid_position: 'MATIQE,TTOHMW'}
+    name: btn_weltmeister
+    properties: {text: Weltmeister}
+    type: Button
   layout_properties: {slot: default}
-  name: root_pannel
+  name: column_panel_1
   properties: {}
-  type: FlowPanel
+  type: ColumnPanel
 container:
   properties: {html: '@theme:standard-page.html'}
   type: HtmlTemplate

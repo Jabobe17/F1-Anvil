@@ -1,0 +1,28 @@
+components:
+- layout_properties: {grid_position: 'MWJGPO,LMFXVB'}
+  name: label_1
+  properties: {text: Fahrer}
+  type: Label
+- components:
+  - name: repeating_panel_1
+    properties: {item_template: MainLayout.Fahrer.RowTemplate1}
+    type: RepeatingPanel
+  layout_properties: {grid_position: 'FBQYGN,UFUGDS'}
+  name: data_grid_1
+  properties:
+    columns:
+    - {data_key: Name, id: JKSDUP, title: Fahrer}
+    - {data_key: FahrerNr, expand: false, id: VJQQOR, title: Fahrer Nummer, width: 147.20001220703125}
+    - {data_key: Nation, id: OJLQEN, title: Nation}
+    - {data_key: Debutjahr, id: QERKWZ, title: Debut}
+    - {data_key: Geburtsdatum, id: VRHEDR, title: Geburtsdatum}
+  type: DataGrid
+- event_bindings: {}
+  layout_properties: {grid_position: 'KLXGAY,RBCWYA'}
+  name: button_1
+  properties:
+    text: |
+      Home
+  type: Button
+container: {type: ColumnPanel}
+is_package: true
