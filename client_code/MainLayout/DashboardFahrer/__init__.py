@@ -31,3 +31,9 @@ class DashboardFahrer(DashboardFahrerTemplate):
     open_form('MainLayout')    
     pass
 
+  @handle("link_1", "click")
+  def link_1_click(self, **event_args):
+    from ..Fahrerstatistik import Fahrerstatistik
+    open_form('MainLayout', start_form=Fahrerstatistik)
+    pass
+

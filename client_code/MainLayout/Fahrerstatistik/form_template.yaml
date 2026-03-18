@@ -3,6 +3,11 @@ components:
   name: label_1
   properties: {align: center, bold: true, font: '', font_size: 18, text: Fahrerstatistik}
   type: Label
+- event_bindings: {}
+  layout_properties: {grid_position: 'VTMOPP,CKTHJA'}
+  name: btn_dashboard_fahrer
+  properties: {text: Dashboard}
+  type: Button
 - components:
   - name: repeating_panel_1
     properties: {item_template: MainLayout.Fahrerstatistik.RowTemplate2}
@@ -19,10 +24,5 @@ components:
     - {data_key: DNF, id: TITBHW, title: DNF}
     rows_per_page: 28
   type: DataGrid
-- event_bindings: {}
-  layout_properties: {grid_position: 'FZNCLX,OBAYHW'}
-  name: btn_dashboard_fahrer
-  properties: {text: Dashboard}
-  type: Button
 container: {type: ColumnPanel}
 is_package: true

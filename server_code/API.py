@@ -83,22 +83,24 @@ def get_konstrukteur_weltmeister():
             SELECT
                 ft.team_id,
                 ft.Jahr,
+                t.name AS Team,
                 SUM(fs.Punkte) AS Punkte,
                 SUM(fs.Siege) AS Siege
             FROM Fahrer_Team ft
-            JOIN Fahrerstatistik fs
-              ON fs.FahrerNr = ft.FahrerNr
+            JOIN Fahrerstatistik fs ON fs.FahrerNr = ft.FahrerNr
+            JOIN Team t ON t.team_id = ft.team_id
             WHERE ft.Jahr = 2026
-            GROUP BY ft.team_id, ft.Jahr
+            GROUP BY ft.team_id, ft.Jahr, t.name
         ),
         best_team AS (
-            SELECT team_id, Jahr, Punkte, Siege
+            SELECT team_id, Jahr, Team, Punkte, Siege
             FROM team_stats
-            ORDER BY Punkte DESC, Siege DESC
+            ORDER BY Punkte DESC, Siege DESC, Team ASC
             LIMIT 1
         )
         SELECT
             bt.Jahr,
+            bt.Team,
             (
                 SELECT f.Name
                 FROM Fahrer_Team ft
@@ -122,7 +124,6 @@ def get_konstrukteur_weltmeister():
         FROM best_team bt
     """
   return run_query(sql)
-
 
 @anvil.server.callable
 def get_dashboard_fahrer_punkte():

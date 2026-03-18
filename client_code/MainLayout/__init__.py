@@ -13,13 +13,16 @@ from .Weltmeister import Weltmeister
 
 
 class MainLayout(MainLayoutTemplate):
-  def __init__(self, **properties):
+  def __init__(self, start_form=None, **properties):
     self.init_components(**properties)
 
     self.marker_strecke = None
 
     self.lade_strecken()
     self.starte_mit_erster_strecke()
+
+    if start_form is not None:
+      self.zeige_form(start_form)
 
   def lade_strecken(self):
     strecken = anvil.server.call("get_strecken_liste")
@@ -74,11 +77,8 @@ class MainLayout(MainLayoutTemplate):
   @handle("drop_down_1", "change")
   def drop_down_1_change(self, **event_args):
     streckenname = self.drop_down_1.selected_value
-
-    if not streckenname:
-      return
-
-    self.zeige_strecke(streckenname)
+    if streckenname:
+      self.zeige_strecke(streckenname)
 
   def zeige_form(self, form_klasse):
     self.column_panel_1.clear()
@@ -107,8 +107,3 @@ class MainLayout(MainLayoutTemplate):
   @handle("btn_dashboard_teams", "click")
   def btn_dashboard_teams_click(self, **event_args):
     self.zeige_form(DashboardTeams)
-
-  @handle("button_1", "click")
-  def button_1_click(self, **event_args):
-    open_form('MainLayout')    
-    pass

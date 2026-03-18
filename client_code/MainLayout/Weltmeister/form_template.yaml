@@ -26,6 +26,7 @@ components:
   properties:
     columns:
     - {data_key: Jahr, id: JKSDUP, title: 'Jahr '}
+    - {data_key: Team, id: HBFXIH, title: Team}
     - {data_key: Fahrer1, id: VJQQOR, title: Fahrer1}
     - {data_key: Fahrer2, id: OJLQEN, title: Fahrer2}
     - {data_key: Punkte, id: HWPFHP, title: Punkte}

@@ -1,5 +1,10 @@
 components:
 - event_bindings: {}
+  layout_properties: {grid_position: 'KJRFVA,WIGOHZ'}
+  name: link_1
+  properties: {font_size: 16, text: zurück zur Übersicht}
+  type: Link
+- event_bindings: {}
   layout_properties: {grid_position: 'VPAUVF,UMSKIE'}
   name: plot_1
   properties: {}

@@ -1,4 +1,9 @@
 components:
+- event_bindings: {}
+  layout_properties: {grid_position: 'HDLSTK,HIJEQV'}
+  name: link_1
+  properties: {font: '', font_size: 16, text: zurück zur Übersicht}
+  type: Link
 - layout_properties: {grid_position: 'TDMCNQ,IILQGM'}
   name: plot_1
   properties: {}

@@ -28,3 +28,9 @@ class DashboardTeams(DashboardTeamsTemplate):
   def button_1_click(self, **event_args):
     open_form('MainLayout')    
     pass
+
+  @handle("link_1", "click")
+  def link_1_click(self, **event_args):
+    from ..Teams import Teams
+    open_form('MainLayout', start_form=Teams)
+    pass
