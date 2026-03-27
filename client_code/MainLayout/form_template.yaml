@@ -27,7 +27,8 @@ components:
       - {data_key: Rekordzeit, id: LDTBPS, title: Rundenrekord}
       - {data_key: Letzter_Sieger, id: WHBOMA, title: Letzer Sieger}
     type: DataGrid
-  - layout_properties: {grid_position: 'XYNSOM,NTEFJJ'}
+  - event_bindings: {}
+    layout_properties: {grid_position: 'XYNSOM,NTEFJJ'}
     name: map_1
     properties: {height: 576}
     type: GoogleMap

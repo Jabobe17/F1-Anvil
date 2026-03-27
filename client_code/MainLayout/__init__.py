@@ -108,3 +108,8 @@ class MainLayout(MainLayoutTemplate):
   @handle("btn_dashboard_teams", "click")
   def btn_dashboard_teams_click(self, **event_args):
     self.zeige_form(DashboardTeams)
+
+  @handle("map_1", "bounds_changed")
+  def map_1_bounds_changed(self, **event_args):
+    """This method is called when the viewport bounds have changed."""
+    pass
